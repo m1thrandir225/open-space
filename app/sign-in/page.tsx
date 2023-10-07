@@ -9,6 +9,7 @@ import {
 } from "@supabase/auth-helpers-nextjs";
 import {GithubIcon} from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import {useSearchParams} from "next/navigation";
 import React from "react";
 
@@ -47,16 +48,17 @@ export default function Page() {
   }, [supabase.auth]);
 
   return (
-    <div className="h-screen mx-auto w-full">
+    <div className="h-screen mx-auto w-full flex items-center justify-center">
       <div className="flex flex-row justify-between items-center container mx-auto">
         <div className="flex flex-col items-start gap-6 justify-start w-full max-w-[400px]">
+          <h1 className="w-full text-center text-2xl font-bold"> Sign In </h1>
           <Button
             type="button"
             onClick={handleLoginWithGoogle}
             className="w-full flex flex-row items-center justify-center gap-2"
           >
             <GithubIcon size={24} />
-            Sign in with Google
+            Continue with Google
           </Button>
           <Button
             type="button"
@@ -64,7 +66,7 @@ export default function Page() {
             className="w-full flex flex-row items-center justify-center gap-2"
           >
             <GithubIcon size={24} />
-            Sign in with Github
+            Continue with Github
           </Button>
           {error && (
             <div className="bg-red-500 text-white p-4 rounded-md">{error}</div>
@@ -99,8 +101,14 @@ export default function Page() {
               Sign up
             </Button>
           </form>
+          <p className="w-full text-center">
+            Don&apos;t have an account?{" "}
+            <Link href={"/sign-up"} className="underline">
+              Sign Up
+            </Link>
+          </p>
         </div>
-        <Image src="/logo.png" width={500} height={500} alt="Logo" />
+        <Image src="/lady-with-cat.png" width={500} height={500} alt="Logo" />
       </div>
     </div>
   );
