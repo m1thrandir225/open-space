@@ -29,7 +29,7 @@ export default function Example() {
                 <nav className="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
                     <div className="flex lg:flex-1">
                         <a href="#" >
-                            <span className="sr-only">Your Company</span>
+                            <span className="sr-only">Open Space</span>
                             <Image src="/logo.png" className="h-14 w-auto" width={74} height={74} alt="Logo"/>
                         </a>
                     </div>
@@ -55,7 +55,7 @@ export default function Example() {
                         <a href="#" className="gap-2 rounded-lg bg-indigo-600 px-3.5 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                             Log in <span aria-hidden="true">&rarr;</span>
                         </a>
-                        <a href="#" className="px-4 text-sm font-semibold leading-6 text-gray-900">
+                        <a href='/sign-in' className="px-4 text-sm font-semibold leading-6 text-gray-900">
                             Sign in <span aria-hidden="true">&rarr;</span>
                         </a>
                     </div>
@@ -66,11 +66,7 @@ export default function Example() {
                         <div className="flex items-center justify-between">
                             <a href="#" className="-m-1.5 p-1.5">
                                 <span className="sr-only">Your Company</span>
-                                <img
-                                    className="h-8 w-auto"
-                                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                                    alt=""
-                                />
+                                <Image src="/logo.png" className="h-14 w-auto" width={74} height={74} alt="Logo"/>
                             </a>
                             <button
                                 type="button"
@@ -101,13 +97,8 @@ export default function Example() {
                                     >
                                         Log in
                                     </a>
-                                </div>
-                                <div className="py-6">
-                                    <a
-                                        href="#"
-                                        className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                                    >
-                                        Sign up
+                                    <a href="/sign-in" className="px-4 text-sm font-semibold leading-6 text-gray-900">
+                                        Sign in <span aria-hidden="true">&rarr;</span>
                                     </a>
                                 </div>
                             </div>
@@ -144,11 +135,11 @@ export default function Example() {
                             Find your next open-source contributors.
                         </h1>
                         <p className="mt-6 text-lg leading-8 text-gray-600">
-                            Empower open science collaboration effortlessly – connecting creators with contributors for meaningful projects. Discover. Connect. Make effort.
+                            Empower open science collaboration effortlessly – connecting creators with contributors for meaningful projects. Discover. Connect. Make change.
                         </p>
                         <div className="mt-10 flex items-center justify-center gap-x-6">
                             <a
-                                href="#"
+                                href="/sign-in"
                                 className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                             >
                                 Get started
