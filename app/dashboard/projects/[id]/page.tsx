@@ -24,9 +24,14 @@ export default async function Page({
 
   const {data, error: error2} = await supabase
     .from("projects")
-    .select("*")
+    .select(
+      `*, 
+    links: links->links`
+    )
     .eq("id", params.id)
     .single();
+
+  console.log(data?.links);
 
   const {data: projectTags, error: error3} = await supabase
     .from("projectTags")

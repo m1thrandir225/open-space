@@ -110,19 +110,21 @@ const SingleProject: React.FC<SingleProjectProps> = ({
             </div>
             <div className="space-y-4 lg:text-lg leading-loose my-8">
               <h1 className="text-2xl font-bold my-2">Links</h1>
-              {project.links &&
-                project.links["links"] &&
-                typeof project.links["links"] !== "string" &&
-                project.links["links"].map((link, index) => (
-                  <Link
-                    href={`${link.url}`}
-                    target="_blank"
-                    key={index.toString}
-                    className="underline text-xl font-medium"
-                  >
-                    {link.url}
-                  </Link>
-                ))}
+              {
+                // @eslint-disable-next-line
+
+                Array.isArray(project.links) &&
+                  project.links.map((link: any, index: number) => (
+                    <Link
+                      href={`${link.url}`}
+                      target="_blank"
+                      key={index.toString()}
+                      className="underline text-xl font-medium"
+                    >
+                      {link.url}
+                    </Link>
+                  ))
+              }
             </div>
           </div>
         </div>
