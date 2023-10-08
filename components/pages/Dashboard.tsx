@@ -36,7 +36,7 @@ const DashboardPage: React.FC<DashboardProps> = ({user}) => {
   }
 
   return (
-    <div className="container mx-auto grid grid-cols-3 w-full gap-6">
+    <div className="container mx-auto grid grid-cols-3 w-full gap-6 my-6">
       {projects.data &&
         projects.data?.map((project) => {
           return <ProjectCard project={project} key={project.id} />;

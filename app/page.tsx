@@ -37,16 +37,13 @@ const people = [
   // More people...
 ];
 
-function Header() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const navigation = [
-    {name: "Categories", href: "#"},
-    {name: "Projects", href: "#"},
-    {name: "About Us", href: "#about"},
-  ];
-}
+const navigation = [
+  {name: "Categories", href: "#"},
+  {name: "Projects", href: "#"},
+  {name: "About Us", href: "#about"},
+];
 
-export default function Example() {
+function Top() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   return (
     <div className="bg-white">
@@ -88,18 +85,18 @@ export default function Example() {
               </a>
             ))}
           </div>
-          <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-            <a
-              href="#"
-              className="gap-2 rounded-lg bg-indigo-600 px-3.5 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-            >
-              Log in <span aria-hidden="true">&rarr;</span>
-            </a>
+          <div className="hidden lg:flex lg:flex-1 lg:justify-end items-center">
             <a
               href="/sign-in"
-              className="px-4 text-sm font-semibold leading-6 text-gray-900"
+              className="gap-2 rounded-lg bg-indigo-600 px-3.5 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             >
               Sign in <span aria-hidden="true">&rarr;</span>
+            </a>
+            <a
+              href="/sign-up"
+              className="px-4 text-sm font-semibold  text-gray-900"
+            >
+              Sign Up <span aria-hidden="true">&rarr;</span>
             </a>
           </div>
         </nav>
@@ -403,7 +400,7 @@ function ScrollToSectionPage() {
 export default function Example() {
   return (
     <>
-      <Header />
+      <Top />
       <MainContent />
       <ScrollToSectionPage />
     </>
