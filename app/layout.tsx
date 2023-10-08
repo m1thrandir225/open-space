@@ -1,6 +1,7 @@
 import "./globals.css";
 import type {Metadata} from "next";
 import {ThemeProvider} from "@/components/theme-provider";
+import Providers from "@/components/Providers";
 
 export const metadata: Metadata = {
   title: "Open Space - Marketplace",
@@ -9,17 +10,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
+
     <html lang="en" style={{ scrollBehavior: "smooth"}} suppressHydrationWarning>
       <head />
       <body>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          {children}
-        </ThemeProvider>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

@@ -3,11 +3,8 @@
 import {Button} from "@/components/ui/button";
 import {Input} from "@/components/ui/input";
 import {Label} from "@/components/ui/label";
-import {
-  createClientComponentClient,
-  createServerComponentClient,
-} from "@supabase/auth-helpers-nextjs";
-import {GithubIcon} from "lucide-react";
+import {createClientComponentClient} from "@supabase/auth-helpers-nextjs";
+import {GithubIcon, BotIcon} from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import {useSearchParams} from "next/navigation";
@@ -57,7 +54,7 @@ export default function Page() {
             onClick={handleLoginWithGoogle}
             className="w-full flex flex-row items-center justify-center gap-2"
           >
-            <GithubIcon size={24} />
+            <BotIcon size={24} />
             Continue with Google
           </Button>
           <Button
@@ -69,7 +66,9 @@ export default function Page() {
             Continue with Github
           </Button>
           {error && (
-            <div className="bg-red-500 text-white p-4 rounded-md">{error}</div>
+            <div className="bg-red-500 text-white p-4 rounded-md w-full max-w-[400px] text-center">
+              {error}
+            </div>
           )}
           <p className="text-center w-full"> or </p>
           <form
