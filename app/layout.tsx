@@ -1,6 +1,5 @@
 import "./globals.css";
 import type {Metadata} from "next";
-import {ThemeProvider} from "@/components/theme-provider";
 import Providers from "@/components/Providers";
 
 export const metadata: Metadata = {
@@ -10,7 +9,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" style={{ scrollBehavior: "smooth"}} suppressHydrationWarning>
+      <head />
       <body>
         <Providers>{children}</Providers>
       </body>
