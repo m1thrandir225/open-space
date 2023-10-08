@@ -9,6 +9,8 @@ import {Label} from "@/components/ui/label";
 import {Input} from "@/components/ui/input";
 import Link from "next/link";
 
+export const dynamic = "force-dynamic";
+
 
 import { useState } from 'react'
 import { Dialog } from '@headlessui/react'
