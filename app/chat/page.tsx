@@ -7,6 +7,7 @@ import './chat.css';
 
 export default function Page() {
   return (
+      <div className=" mx-auto w-full flex items-center justify-center">
       <div className="flex-1 p:2 sm:p-6 justify-between flex flex-col h-screen">
           <div className="flex sm:items-center justify-between py-3 border-b-2 border-gray-200">
               <div className="relative flex items-center space-x-4">
@@ -72,7 +73,7 @@ export default function Page() {
                   <div className="flex items-end justify-end">
                       <div className="flex flex-col space-y-2 text-xs max-w-xs mx-2 order-1 items-end">
                           <div><span
-                              className="px-4 py-2 rounded-lg inline-block rounded-br-none bg-blue-600 text-white ">Hello, Marie! It's been a busy day at the lab, but I'm always looking forward to our chats. How about you?</span>
+                              className="px-4 py-2 rounded-lg inline-block rounded-br-none bg-blue-600 text-white ">Hello, Marie! It been a busy day at the lab, but I'm always looking forward to our chats. How about you?</span>
                           </div>
                       </div>
                       <img
@@ -235,6 +236,6 @@ export default function Page() {
               </div>
           </div>
       </div>
+      </div>
   );
-
 }
