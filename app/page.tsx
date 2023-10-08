@@ -1,27 +1,56 @@
 "use client";
-import {createServerComponentClient} from "@supabase/auth-helpers-nextjs";
-import {cookies} from "next/headers";
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import { cookies } from "next/headers";
 import Image from "next/image";
-import React from "react";
-import {Button} from "@/components/ui/button";
-import {GithubIcon} from "lucide-react";
-import {Label} from "@/components/ui/label";
-import {Input} from "@/components/ui/input";
+import React, {useRef} from "react";
+import { Button } from "@/components/ui/button";
+import { GithubIcon } from "lucide-react";
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
 import Link from "next/link";
-
+import { CloudArrowUpIcon, LockClosedIcon, ServerIcon } from '@heroicons/react/20/solid'
 
 import { useState } from 'react'
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 
-const navigation = [
-    { name: 'Categories', href: '#' },
-    { name: 'Projects', href: '#' },
-    { name: 'Contributors', href: '#' },
+
+
+const people = [
+    {
+        name: 'Sebastijan Zindl',
+        role: 'Team-lid / Software Engineering',
+        imageUrl:
+            '/seb4e.jfif',
+    },
+    {
+        name: 'Ljubica Ristovska',
+        role: 'Cyber Security',
+        imageUrl:
+            '/bub4e.jfif',
+    },
+    {
+        name: 'Sara Apostolovska',
+        role: 'Software Engineering',
+        imageUrl:
+            '/sar4e.jfif'
+    },
+    {
+        name: 'Marko Ilioski',
+        role: 'Software Engineering',
+        imageUrl:
+            '/mar4e.jpg'
+    },
+    // More people...
 ]
 
-export default function Example() {
+function Header() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+    const navigation = [
+        { name: 'Categories', href: '#' },
+        { name: 'Projects', href: '#' },
+        { name: 'About Us', href: "#about" },
+    ]
 
     return (
         <div className="bg-white">
@@ -167,5 +196,127 @@ export default function Example() {
     )
 }
 
+function MainContent() {
+    return (
+        <div className="relative isolate overflow-hidden bg-white px-6 py-24 sm:py-32 lg:overflow-visible lg:px-0">
+            <div className="absolute inset-0 -z-10 overflow-hidden">
+                <svg
+                    className="absolute left-[max(50%,25rem)] top-0 h-[64rem] w-[128rem] -translate-x-1/2 stroke-gray-200 [mask-image:radial-gradient(64rem_64rem_at_top,white,transparent)]"
+                    aria-hidden="true"
+                >
+                    <defs>
+                        <pattern
+                            id="e813992c-7d03-4cc4-a2bd-151760b470a0"
+                            width={200}
+                            height={200}
+                            x="50%"
+                            y={-1}
+                            patternUnits="userSpaceOnUse"
+                        >
+                            <path d="M100 200V.5M.5 .5H200" fill="none" />
+                        </pattern>
+                    </defs>
+                    <svg x="50%" y={-1} className="overflow-visible fill-gray-50">
+                        <path
+                            d="M-100.5 0h201v201h-201Z M699.5 0h201v201h-201Z M499.5 400h201v201h-201Z M-300.5 600h201v201h-201Z"
+                            strokeWidth={0}
+                        />
+                    </svg>
+                    <rect width="100%" height="100%" strokeWidth={0} fill="url(#e813992c-7d03-4cc4-a2bd-151760b470a0)" />
+                </svg>
+            </div>
+            <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10">
+                <div className="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
+                    <div className="lg:pr-4">
+                        <div className="lg:max-w-lg">
+                            <p className="text-base font-semibold leading-7 text-indigo-600">Connect faster</p>
+                            <h1 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">A better marketplace</h1>
+                            <p className="mt-6 text-xl leading-8 text-gray-700">
+                                NASA is making a long-term commitment to build an inclusive open science community over the next decade. Open-source science is a commitment to openly sharing software, data, and knowledge as early as possible in the scientific process.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div className="-ml-12 -mt-12 p-12 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden">
+                    <Image src="/img.jpg" width={2000} height={1000}
+                        className="w-[48rem] max-w-none rounded-xl bg-gray-900 shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem]"
+
+                        alt=""
+                    />
+                </div>
+                <div className="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
+                    <div className="lg:pr-4">
+                        <div className="max-w-xl text-base leading-7 text-gray-700 lg:max-w-lg">
+                            <ul role="list" className="mt-8 space-y-8 text-gray-600">
+                                <li className="flex gap-x-3">
+                                    <CloudArrowUpIcon className="mt-1 h-5 w-5 flex-none text-indigo-600" aria-hidden="true" />
+                                    <span>
+                                        <strong className="font-semibold text-gray-900">Deploy projects.</strong> Bring your projects to life. Share your early work with people who share your passions.
+                                        blanditiis ratione.
+                                    </span>
+                                </li>
+                                <li className="flex gap-x-3">
+                                    <LockClosedIcon className="mt-1 h-5 w-5 flex-none text-indigo-600" aria-hidden="true" />
+                                    <span>
+                                        <strong className="font-semibold text-gray-900">Find contributors.</strong> Connect with dedicated experts in certain fields, in one click. Find people and let people find you.
+                                    </span>
+                                </li>
+                                <li className="flex gap-x-3">
+                                    <ServerIcon className="mt-1 h-5 w-5 flex-none text-indigo-600" aria-hidden="true" />
+                                    <span>
+                                        <strong className="font-semibold text-gray-900">Share skill set.</strong> Share your skills with people and gain opportunities for collaboration.
+                                    </span>
+                                </li>
+                            </ul>
+                            <h2 className="mt-16 text-2xl font-bold tracking-tight text-gray-900">Need collaboration? No problem.</h2>
+                            <p className="mt-6">
+                                Open research initiatives can involve a variety of participants. Some open research projects involve participants who don’t possess specialized expertise, but other projects require contributors with specific skills. While it’s challenging for those who run open science projects to find people to participate, it’s also challenging for people who want to participate to find those projects.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
+}
+function ScrollToSectionPage() {
+    const targetRef = useRef<HTMLDivElement | null>(null);
+
+    return (
+        <div className="bg-white py-24 sm:py-32" id={"about"}>
+            <div className="mx-auto grid max-w-7xl gap-x-8 gap-y-20 px-6 lg:px-8 xl:grid-cols-3">
+                <div className="max-w-2xl">
+                    <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Meet our Team</h2>
+                    <p className="mt-6 text-lg leading-8 text-gray-600">
+                        Hi! Our name Apoapsis means the farthest point in an orbit, representing our team's commitment to pushing the boundaries of space exploration and technology. We're all about reaching for the stars and exploring the outer limits of our universe!
+                    </p>
+                </div>
+                <ul role="list" className="grid gap-x-8 gap-y-12 sm:grid-cols-2 sm:gap-y-16 xl:col-span-2">
+                    {people.map((person) => (
+                        <li key={person.name}>
+                            <div className="flex items-center gap-x-6">
+                                <img className="h-16 w-16 rounded-full" src={person.imageUrl} alt="" />
+                                <div>
+                                    <h3 className="text-base font-semibold leading-7 tracking-tight text-gray-900">{person.name}</h3>
+                                    <p className="text-sm font-semibold leading-6 text-indigo-600">{person.role}</p>
+                                </div>
+                            </div>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+        </div>
+    )
+}
+
+export default function Example() {
+    return (
+        <>
+            <Header />
+            <MainContent />
+            <ScrollToSectionPage />
+        </>
+    )
+}
 
 
