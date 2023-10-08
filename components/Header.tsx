@@ -50,7 +50,6 @@ const DashboardHeader: React.FC = () => {
 
   const pathname = usePathname();
 
-  console.log(pathname);
   return (
     <div className="w-full py-4 container mx-auto flex flex-row items-center justify-between">
       <Image src={"/logo.png"} width={74} height={74} alt="Open Space" />

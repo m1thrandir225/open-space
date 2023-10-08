@@ -32,7 +32,7 @@ export default function Example() {
           aria-label="Global"
         >
           <div className="flex lg:flex-1">
-            <a href="#">
+            <Link href="#">
               <span className="sr-only">Open Space</span>
               <Image
                 src="/logo.png"
@@ -41,7 +41,7 @@ export default function Example() {
                 height={74}
                 alt="Logo"
               />
-            </a>
+            </Link>
           </div>
           <div className="flex lg:hidden">
             <button
@@ -55,29 +55,26 @@ export default function Example() {
           </div>
           <div className="hidden lg:flex lg:gap-x-12">
             {navigation.map((item) => (
-              <a
+              <Link
                 key={item.name}
                 href={item.href}
                 className="text-sm font-semibold leading-6 text-gray-900"
               >
                 {item.name}
-              </a>
+              </Link>
             ))}
           </div>
 
-          <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-            <a
-              href="#"
+          <div className="hidden lg:flex lg:flex-1 lg:justify-end items-center">
+            <Link
+              href="/sign-in"
               className="gap-2 rounded-lg bg-indigo-600 px-3.5 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             >
-              Log in <span aria-hidden="true">&rarr;</span>
-            </a>
-            <a
-              href="/sign-in"
-              className="px-4 text-sm font-semibold leading-6 text-gray-900"
-            >
               Sign in <span aria-hidden="true">&rarr;</span>
-            </a>
+            </Link>
+            <Link href="/sign-up" className="px-4 text-sm  text-gray-900">
+              Sign Up <span aria-hidden="true">&rarr;</span>
+            </Link>
           </div>
         </nav>
         <Dialog
@@ -121,19 +118,19 @@ export default function Example() {
                     </a>
                   ))}
                 </div>
-                <div className="py-6">
-                  <a
-                    href="#"
-                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                <div className="py-6 flex items-center justify-center gap-4">
+                  <Link
+                    href="/sign-in"
+                    className=" block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                   >
                     Log in
-                  </a>
-                  <a
-                    href="/sign-in"
-                    className="px-4 text-sm font-semibold leading-6 text-gray-900"
+                  </Link>
+                  <Link
+                    href="/sign-up"
+                    className="px-4 text-sm font-semibold  text-gray-900 text-center"
                   >
                     Sign in <span aria-hidden="true">&rarr;</span>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

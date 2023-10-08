@@ -12,7 +12,7 @@ import type {Database} from "@/lib/types/db";
 import {Label} from "@/components/ui/label";
 import {Input} from "@/components/ui/input";
 import {Button} from "@/components/ui/button";
-import {useRouter} from "next/router";
+import {useRouter} from "next/navigation";
 import {Badge} from "@/components/ui/badge";
 import {
   ArrowRight,
@@ -58,8 +58,6 @@ Tags mutation:
 - If tag does not exist create tag
 - If tag exists create userTag
  */
-
-//TODO: Remake with React Hook Form
 
 const FormSchema = z.object({
   username: z.string().min(3).max(32).optional(),
@@ -185,14 +183,8 @@ const Onboarding: React.FC<OnboardingProps> = ({user}) => {
     try {
       await updateProfileMutation.mutateAsync(data);
       await updateSkillsMutation.mutateAsync(data);
-
-      if (updateProfileMutation.isSuccess && updateSkillsMutation.isSuccess) {
-        console.log("Success");
-
-        form.reset();
-
-        router.reload();
-      }
+      form.reset();
+      router.replace("/dashboard");
     } catch (error) {
       console.log(error);
     }
