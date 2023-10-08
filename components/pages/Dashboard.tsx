@@ -8,6 +8,7 @@ import {
 } from "@supabase/auth-helpers-nextjs";
 import {Database} from "@/lib/types/db";
 import Onboarding from "@/components/pages/Onboarding";
+import ProjectCard from "../ProjectCard";
 
 interface DashboardProps {
   user: Session["user"];
@@ -36,6 +37,16 @@ const DashboardPage: React.FC<DashboardProps> = ({user}) => {
     return data;
   });
 
+  const projects = useQuery(["projects"], async () => {
+    const {data, error} = await supabase.from("projects").select("*");
+
+    if (error) {
+      throw error;
+    }
+
+    return data;
+  });
+
   if (userTagsQuery.isLoading) {
     return <div> Loading ... </div>;
   }
@@ -49,8 +60,11 @@ const DashboardPage: React.FC<DashboardProps> = ({user}) => {
   }
 
   return (
-    <div>
-      <p></p>
+    <div className="container mx-auto grid grid-cols-3 w-full gap-6">
+      {projects.data &&
+        projects.data?.map((project) => {
+          return <ProjectCard project={project} key={project.id} />;
+        })}
     </div>
   );
 };
