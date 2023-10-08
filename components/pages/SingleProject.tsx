@@ -6,6 +6,7 @@ import {Button} from "../ui/button";
 import {Label} from "../ui/label";
 import {Input} from "../ui/input";
 import Link from "next/link";
+import * as ShadAvatar from "../ui/avatar";
 
 type SingleProjectProps = {
   project: Database["public"]["Tables"]["projects"]["Row"];
@@ -18,7 +19,6 @@ const SingleProject: React.FC<SingleProjectProps> = ({
   projectTags,
   author,
 }) => {
-  console.log(project.links);
   return (
     <div className=" mx-auto w-full flex items-center justify-center">
       <div className="px-6 py-8">
@@ -38,12 +38,13 @@ const SingleProject: React.FC<SingleProjectProps> = ({
               </p>
 
               <div className="flex items-center lg:justify-center text-sm mt-4">
-                <Image
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWkusqbGzdZwsxIMmcFfFZCfrfKNmIsQpiz_qF7WdTWw&s"
-                  alt="avatar"
-                  width={50}
-                  height={50}
-                />
+                <ShadAvatar.Avatar className="h-12 w-12">
+                  <ShadAvatar.AvatarImage src="https://source.boringavatars.com/beam"></ShadAvatar.AvatarImage>
+                  <ShadAvatar.AvatarFallback>
+                    {author.first_name?.charAt(0)}
+                    {author.last_name?.charAt(0)}
+                  </ShadAvatar.AvatarFallback>
+                </ShadAvatar.Avatar>
                 <div className="ml-3 text-left" />
                 Author:{" "}
                 <h5 className="font-bold">
@@ -89,9 +90,14 @@ const SingleProject: React.FC<SingleProjectProps> = ({
               <Button>Participate</Button>
             </div>
 
-            <div className="space-x-2">
-              {projectTags?.map((projectTag) => (
-                <p key={projectTag.id}>{projectTag.project_id}</p>
+            <div className="space-x-2 flex flex-row items-center justify-start gap-4 my-4">
+              {projectTags?.map((projectTag, index) => (
+                <p
+                  key={index}
+                  className="px-4 py-2 outline-2 outline outline-accent-foreground rounded-full"
+                >
+                  {projectTag.tags.name}
+                </p>
               ))}
             </div>
 

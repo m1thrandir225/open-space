@@ -30,8 +30,14 @@ export default async function Page({
 
   const {data: projectTags, error: error3} = await supabase
     .from("projectTags")
-    .select(`*, tags(*))`)
+    .select(
+      `   
+      tags ( name )
+    `
+    )
     .eq("project_id", params.id);
+
+  console.log(projectTags);
 
   const {data: author, error: authorError} = await supabase
     .from("profiles")
@@ -47,6 +53,10 @@ export default async function Page({
   }
 
   if (authorError || !author) {
+    redirect("/dashboard");
+  }
+
+  if (!projectTags || error3) {
     redirect("/dashboard");
   }
 
