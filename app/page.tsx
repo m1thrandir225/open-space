@@ -10,8 +10,11 @@ import { Input } from "@/components/ui/input";
 import Link from "next/link";
 
 import { CloudArrowUpIcon, LockClosedIcon, ServerIcon } from '@heroicons/react/20/solid'
-import { Dialog } from "@headlessui/react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+export const dynamic = "force-dynamic";
+
+import {Dialog} from "@headlessui/react";
+import {Bars3Icon, XMarkIcon} from "@heroicons/react/24/outline";
+
 
 const people = [
     {
@@ -89,7 +92,6 @@ function Header() {
                             </a>
                         ))}
                     </div>
-
                     <div className="hidden lg:flex lg:flex-1 lg:justify-end">
                         <a
                             href="#"
@@ -230,6 +232,7 @@ function Header() {
         </div>
     );
 }
+
 
 function MainContent() {
     return (
