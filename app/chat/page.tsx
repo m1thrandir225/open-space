@@ -20,6 +20,8 @@ export default function Page() {
                 src="https://upload.wikimedia.org/wikipedia/commons/5/51/Marie_Curie_%281900%29.jpg"
                 alt=""
                 className="w-10 sm:w-16 h-10 sm:h-16 rounded-full"
+                width={64}
+                height={64}
               />
             </div>
             <div className="flex flex-col leading-tight">
@@ -108,6 +110,8 @@ export default function Page() {
                 src="https://upload.wikimedia.org/wikipedia/commons/5/51/Marie_Curie_%281900%29.jpg"
                 alt="My profile"
                 className="w-6 h-6 rounded-full order-1"
+                width={24}
+                height={24}
               />
             </div>
           </div>
@@ -126,6 +130,8 @@ export default function Page() {
                 src="https://upload.wikimedia.org/wikipedia/commons/d/db/Pierre_Curie_by_Dujardin_c1906.jpg"
                 alt="My profile"
                 className="w-6 h-6 rounded-full order-2"
+                width={24}
+                height={24}
               />
             </div>
           </div>
@@ -161,6 +167,8 @@ export default function Page() {
                 src="https://upload.wikimedia.org/wikipedia/commons/5/51/Marie_Curie_%281900%29.jpg"
                 alt="My profile"
                 className="w-6 h-6 rounded-full order-1"
+                width={24}
+                height={24}
               />
             </div>
           </div>
@@ -180,6 +188,8 @@ export default function Page() {
                 src="https://upload.wikimedia.org/wikipedia/commons/d/db/Pierre_Curie_by_Dujardin_c1906.jpg"
                 alt="My profile"
                 className="w-6 h-6 rounded-full order-2"
+                width={24}
+                height={24}
               />
             </div>
           </div>
@@ -197,6 +207,8 @@ export default function Page() {
                 src="https://upload.wikimedia.org/wikipedia/commons/5/51/Marie_Curie_%281900%29.jpg"
                 alt="My profile"
                 className="w-6 h-6 rounded-full order-1"
+                width={24}
+                height={24}
               />
             </div>
           </div>
@@ -221,6 +233,8 @@ export default function Page() {
                 src="https://upload.wikimedia.org/wikipedia/commons/d/db/Pierre_Curie_by_Dujardin_c1906.jpg"
                 alt="My profile"
                 className="w-6 h-6 rounded-full order-2"
+                width={24}
+                height={24}
               />
             </div>
           </div>
@@ -243,6 +257,8 @@ export default function Page() {
                 src="https://upload.wikimedia.org/wikipedia/commons/5/51/Marie_Curie_%281900%29.jpg"
                 alt="My profile"
                 className="w-6 h-6 rounded-full order-1"
+                width={24}
+                height={24}
               />
             </div>
           </div>
@@ -259,6 +275,8 @@ export default function Page() {
                 src="https://upload.wikimedia.org/wikipedia/commons/d/db/Pierre_Curie_by_Dujardin_c1906.jpg"
                 alt="My profile"
                 className="w-6 h-6 rounded-full order-2"
+                width={24}
+                height={24}
               />
             </div>
           </div>
@@ -286,6 +304,8 @@ export default function Page() {
                 src="https://upload.wikimedia.org/wikipedia/commons/5/51/Marie_Curie_%281900%29.jpg"
                 alt="My profile"
                 className="w-6 h-6 rounded-full order-1"
+                width={24}
+                height={24}
               />
             </div>
           </div>
