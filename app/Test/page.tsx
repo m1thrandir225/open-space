@@ -102,40 +102,40 @@ const sortOptions = [
 // ]
 const filters = [
     {
-        id: 'color',
-        name: 'Color',
+        id: 'tags',
+        name: 'Tags',
         options: [
-            {value: 'white', label: 'White', checked: false},
-            {value: 'beige', label: 'Beige', checked: false},
-            {value: 'blue', label: 'Blue', checked: true},
-            {value: 'brown', label: 'Brown', checked: false},
-            {value: 'green', label: 'Green', checked: false},
-            {value: 'purple', label: 'Purple', checked: false},
+            {value: 'white',  checked: false},
+            {value: 'beige',  checked: false},
+            {value: 'blue',  checked: true},
+            {value: 'brown', checked: false},
+            {value: 'green', checked: false},
+            {value: 'purple', checked: false},
         ],
-    },
-    {
-        id: 'category',
-        name: 'Category',
-        options: [
-            {value: 'new-arrivals', label: 'New Arrivals', checked: false},
-            {value: 'sale', label: 'Sale', checked: false},
-            {value: 'travel', label: 'Travel', checked: true},
-            {value: 'organization', label: 'Organization', checked: false},
-            {value: 'accessories', label: 'Accessories', checked: false},
-        ],
-    },
-    {
-        id: 'size',
-        name: 'Size',
-        options: [
-            {value: '2l', label: '2L', checked: false},
-            {value: '6l', label: '6L', checked: false},
-            {value: '12l', label: '12L', checked: false},
-            {value: '18l', label: '18L', checked: false},
-            {value: '20l', label: '20L', checked: false},
-            {value: '40l', label: '40L', checked: true},
-        ],
-    },
+    }//,
+    // {
+    //     id: 'category',
+    //     name: 'Category',
+    //     options: [
+    //         {value: 'new-arrivals', label: 'New Arrivals', checked: false},
+    //         {value: 'sale', label: 'Sale', checked: false},
+    //         {value: 'travel', label: 'Travel', checked: true},
+    //         {value: 'organization', label: 'Organization', checked: false},
+    //         {value: 'accessories', label: 'Accessories', checked: false},
+    //     ],
+    // },
+    // {
+    //     id: 'size',
+    //     name: 'Size',
+    //     options: [
+    //         {value: '2l', label: '2L', checked: false},
+    //         {value: '6l', label: '6L', checked: false},
+    //         {value: '12l', label: '12L', checked: false},
+    //         {value: '18l', label: '18L', checked: false},
+    //         {value: '20l', label: '20L', checked: false},
+    //         {value: '40l', label: '40L', checked: true},
+    //     ],
+    // },
 ]
 
 function classNames(...classes) {
@@ -266,7 +266,7 @@ export default function Seach() {
                                                                             htmlFor={`filter-mobile-${section.id}-${optionIdx}`}
                                                                             className="ml-3 min-w-0 flex-1 text-gray-500"
                                                                         >
-                                                                            {option.label}
+                                                                            {option.value}
                                                                         </label>
                                                                     </div>
                                                                 ))}
@@ -285,7 +285,7 @@ export default function Seach() {
 
                 <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="flex items-baseline justify-between border-b border-gray-200 pb-6 pt-24">
-                        <h1 className="text-4xl font-bold tracking-tight text-gray-900">New Arrivals</h1>
+                        <h1 className="text-4xl font-bold tracking-tight text-gray-900">Search</h1>
 
                         <div className="flex items-center">
                             <Menu as="div" className="relative inline-block text-left">
@@ -401,7 +401,7 @@ export default function Seach() {
                                                                     htmlFor={`filter-${section.id}-${optionIdx}`}
                                                                     className="ml-3 text-sm text-gray-600"
                                                                 >
-                                                                    {option.label}
+                                                                    {option.value}
                                                                 </label>
                                                             </div>
                                                         ))}
