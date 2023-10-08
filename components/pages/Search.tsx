@@ -10,6 +10,7 @@ import {Label} from "@/components/ui/label";
 import {Input} from "@/components/ui/input";
 import {redirect} from "next/navigation";
 import DashboardPage from "@/components/pages/Dashboard";
+import ProjectCard from "@/components/ProjectCard";
 
 interface DashboardProps {
     user: Session["user"];
@@ -29,12 +30,22 @@ function classNames(...classes) {
     return classes.filter(Boolean).join(' ');
 }
 
-const SeachPage : React.FC<DashboardProps> = ({user}) => {
+const SeachPage: React.FC<DashboardProps> = ({user}) => {
     const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
     const [filterOption, setFilterOption] = useState("wow")
     const [seach, makeSearch] = React.useState("");
 
     const supabase = createClientComponentClient()
+
+    const projects = useQuery(["projects"], async () => {
+        const {data, error} = await supabase.from("projects").select("*");
+
+        if (error) {
+            throw error;
+        }
+
+        return data;
+    });
 
     const categories = useQuery(['categories', filterOption], async () => {
         const {data, error} = await supabase.from("categories").select("name")
@@ -306,7 +317,12 @@ const SeachPage : React.FC<DashboardProps> = ({user}) => {
 
                             {/* Product grid */}
                             <div className="lg:col-span-3">{/* Your content */}
-                                <DashboardPage user={user} />
+                                <div className="container mx-auto grid grid-cols-3 w-full gap-6">
+                                    {projects.data &&
+                                        projects.data?.map((project) => {
+                                            return <ProjectCard project={project} key={project.id}/>;
+                                        })}
+                                </div>
                             </div>
                         </div>
                     </section>
