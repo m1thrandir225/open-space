@@ -23,6 +23,9 @@ export default function Page() {
   const handleLoginWithGithub = React.useCallback(async () => {
     const {data, error} = await supabase.auth.signInWithOAuth({
       provider: "github",
+      options: {
+        redirectTo: "/dashboard",
+      },
     });
     if (error) {
       console.error(error);
@@ -32,6 +35,9 @@ export default function Page() {
   const handleLoginWithGoogle = React.useCallback(async () => {
     const {data, error} = await supabase.auth.signInWithOAuth({
       provider: "google",
+      options: {
+        redirectTo: "/dashboard",
+      },
     });
     if (error) {
       console.error(error);
