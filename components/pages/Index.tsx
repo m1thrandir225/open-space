@@ -12,6 +12,7 @@ import {
 import {Bars3Icon, XMarkIcon} from "@heroicons/react/24/outline";
 import Link from "next/link";
 import {Button} from "../ui/button";
+import {useTheme} from "next-themes";
 
 const people = [
   {
@@ -45,6 +46,7 @@ const navigation = [
 
 function Top({isLoggedIn}: {isLoggedIn: boolean}) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   return (
     <div className="bg-white">
       <header className="absolute inset-x-0 top-0 z-50">

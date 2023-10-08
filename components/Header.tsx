@@ -13,9 +13,9 @@ import {
 } from "./ui/dropdown-menu";
 import {Button} from "./ui/button";
 import * as ShadAvatar from "./ui/avatar";
-import {User, createClientComponentClient} from "@supabase/auth-helpers-nextjs";
+import {createClientComponentClient} from "@supabase/auth-helpers-nextjs";
 import {Database} from "@/lib/types/db";
-import LogoutButton from "./LogoutButton";
+
 import Link from "next/link";
 import {PlusIcon} from "lucide-react";
 import {useQuery} from "@tanstack/react-query";
