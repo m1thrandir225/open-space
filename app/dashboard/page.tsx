@@ -11,16 +11,16 @@ export default async function Page() {
   const supabase = createServerComponentClient<Database>({cookies});
 
   const {
-    data: {session},
+    data: {user},
     error,
-  } = await supabase.auth.getSession();
+  } = await supabase.auth.getUser();
 
-  if (error || !session) {
+  if (error || !user) {
     redirect("/sign-in");
   }
   return (
     <Suspense fallback={<div> Loading... </div>}>
-      <DashboardPage user={session.user} />
+      <DashboardPage user={user} />
     </Suspense>
   );
 }
