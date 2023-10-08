@@ -8,19 +8,19 @@ import SearchPage from "@/components/pages/Search";
 export const dynamic = "force-dynamic";
 
 export default async function Page() {
-    const supabase = createServerComponentClient<Database>({cookies});
+  const supabase = createServerComponentClient<Database>({cookies});
 
-    const {
-        data: {user},
-        error,
-    } = await supabase.auth.getUser();
+  const {
+    data: {user},
+    error,
+  } = await supabase.auth.getUser();
 
-    if (error || !user) {
-        redirect("/sign-in");
-    }
-    return (
-        <Suspense fallback={<div> Loading... </div>}>
-            <SearchPage user={user} />
-        </Suspense>
-    );
+  if (error || !user) {
+    redirect("/sign-in");
+  }
+  return (
+    <Suspense fallback={<div> Loading... </div>}>
+      <SearchPage user={user} />
+    </Suspense>
+  );
 }

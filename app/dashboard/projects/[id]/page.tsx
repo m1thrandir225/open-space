@@ -8,6 +8,9 @@ import {cookies} from "next/headers";
 import {redirect} from "next/navigation";
 import {Database} from "@/lib/types/db";
 import SingleProject from "@/components/pages/SingleProject";
+
+export const dynamic = "force-dynamic";
+
 export default async function Page({
   params,
   searchParams,
