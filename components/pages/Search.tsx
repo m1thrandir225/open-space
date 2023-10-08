@@ -6,10 +6,7 @@ import {XMarkIcon} from '@heroicons/react/24/outline'
 import {ChevronDownIcon, FunnelIcon, MinusIcon, PlusIcon, Squares2X2Icon} from '@heroicons/react/20/solid'
 import {createClientComponentClient, Session} from "@supabase/auth-helpers-nextjs";
 import {useQuery} from "@tanstack/react-query";
-import {Label} from "@/components/ui/label";
 import {Input} from "@/components/ui/input";
-import {redirect} from "next/navigation";
-import DashboardPage from "@/components/pages/Dashboard";
 import ProjectCard from "@/components/ProjectCard";
 
 interface DashboardProps {
@@ -26,7 +23,7 @@ const sortOptions = [
 ]
 
 
-function classNames(...classes) {
+function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(' ');
 }
 
@@ -39,6 +36,17 @@ const SeachPage: React.FC<DashboardProps> = ({user}) => {
 
     const projects = useQuery(["projects"], async () => {
         const {data, error} = await supabase.from("projects").select("*");
+
+        if (error) {
+            throw error;
+        }
+
+        return data;
+    });
+
+    const projectTags = useQuery(["projectTags"], async () => {
+        const {data, error} = await supabase.from("projectTags").select("" +
+            "");
 
         if (error) {
             throw error;
