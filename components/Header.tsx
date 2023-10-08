@@ -18,52 +18,35 @@ import {Database} from "@/lib/types/db";
 import LogoutButton from "./LogoutButton";
 import Link from "next/link";
 import {PlusIcon} from "lucide-react";
+import {useQuery} from "@tanstack/react-query";
 const DashboardHeader: React.FC = () => {
-  const [user, setUser] = React.useState<User | null>(null);
-  const [userProfile, setUserProfile] = React.useState<
-    Database["public"]["Tables"]["profiles"]["Row"] | null
-  >(null);
-
-  const supabase = createClientComponentClient<Database>();
-
-  const getUser = async () => {
+  const {data: user, isLoading: userLoading} = useQuery(["user"], async () => {
     const {
       data: {user},
       error,
     } = await supabase.auth.getUser();
 
-    if (error || !user) {
-      console.error(error);
-      return;
+    return user;
+  });
+
+  const {data: userProfile, isLoading: userProfileLoading} = useQuery(
+    ["userProfile", user?.id],
+    async () => {
+      const {data: userProfile, error} = await supabase
+        .from("profiles")
+        .select("*")
+        .eq("id", user!!.id)
+        .single();
+
+      return userProfile;
+    },
+    {
+      enabled: user?.id !== undefined && user?.id !== null,
     }
+  );
 
-    const {data, error: error2} = await supabase
-      .from("profiles")
-      .select("*")
-      .eq("id", user?.id);
+  const supabase = createClientComponentClient<Database>();
 
-    return {
-      user,
-      userProfile: data?.[0] ?? null,
-    };
-  };
-
-  React.useEffect(() => {
-    getUser().then((data) => {
-      if (!data) return;
-      setUser(data.user);
-      setUserProfile(data.userProfile as any);
-    });
-  }, []);
-
-  const handleSignOut = async () => {
-    const {error} = await supabase.auth.signOut();
-
-    if (error) {
-      console.error(error);
-      return;
-    }
-  };
   return (
     <div className="w-full py-4 container mx-auto flex flex-row items-center justify-between">
       <Image
