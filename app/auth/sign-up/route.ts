@@ -30,7 +30,7 @@ export async function POST(request: Request) {
     );
   }
 
-  return NextResponse.redirect(`${requestUrl.origin}/dashboard`, {
+  return NextResponse.redirect(`${requestUrl.origin}/onboarding`, {
     status: 301,
   });
 }
