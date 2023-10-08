@@ -19,6 +19,7 @@ import LogoutButton from "./LogoutButton";
 import Link from "next/link";
 import {PlusIcon} from "lucide-react";
 import {useQuery} from "@tanstack/react-query";
+import {usePathname, useRouter} from "next/navigation";
 const DashboardHeader: React.FC = () => {
   const {data: user, isLoading: userLoading} = useQuery(["user"], async () => {
     const {
@@ -47,24 +48,24 @@ const DashboardHeader: React.FC = () => {
 
   const supabase = createClientComponentClient<Database>();
 
+  const pathname = usePathname();
+
+  console.log(pathname);
   return (
     <div className="w-full py-4 container mx-auto flex flex-row items-center justify-between">
-      <Image
-        src={"/logo.png"}
-        width={74}
-        height={74}
-        alt="Open Space"
-        className="h-14 w-auto"
-      />
+      <Image src={"/logo.png"} width={74} height={74} alt="Open Space" />
       <div className="flex flex-row items-center gap-4">
-        <Button asChild>
-          <Link
-            href="/dashboard/projects/create"
-            className="flex flex-row items-center justify-center"
-          >
-            <PlusIcon size={16} /> New
-          </Link>
-        </Button>
+        {pathname === "/dashboard/projects/create" ? null : (
+          <Button asChild>
+            <Link
+              href="/dashboard/projects/create"
+              className="flex flex-row items-center justify-center"
+            >
+              <PlusIcon size={16} /> New
+            </Link>
+          </Button>
+        )}
+
         <DropdownMenu>
           <DropdownMenuTrigger>
             <Button
