@@ -137,17 +137,23 @@ export interface Database {
       }
       profiles: {
         Row: {
+          first_name: string | null
           id: string
+          last_name: string | null
           status: string | null
           username: string | null
         }
         Insert: {
+          first_name?: string | null
           id: string
+          last_name?: string | null
           status?: string | null
           username?: string | null
         }
         Update: {
+          first_name?: string | null
           id?: string
+          last_name?: string | null
           status?: string | null
           username?: string | null
         }
@@ -270,27 +276,27 @@ export interface Database {
       }
       tagCategories: {
         Row: {
-          categori_id: string
+          category_id: string
           created_at: string
           id: string
           tag_id: string
         }
         Insert: {
-          categori_id: string
+          category_id: string
           created_at?: string
           id?: string
           tag_id: string
         }
         Update: {
-          categori_id?: string
+          category_id?: string
           created_at?: string
           id?: string
           tag_id?: string
         }
         Relationships: [
           {
-            foreignKeyName: "tagCategories_categori_id_fkey"
-            columns: ["categori_id"]
+            foreignKeyName: "tagCategories_category_id_fkey"
+            columns: ["category_id"]
             referencedRelation: "categories"
             referencedColumns: ["id"]
           },

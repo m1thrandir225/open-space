@@ -1,7 +1,4 @@
 import React, {Suspense} from "react";
-import {Button} from "@/components/ui/button";
-import {Input} from "@/components/ui/input";
-import {Label} from "@/components/ui/label";
 import {cookies} from "next/headers";
 import {redirect} from "next/navigation";
 import {createServerComponentClient} from "@supabase/auth-helpers-nextjs";
