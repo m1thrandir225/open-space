@@ -19,25 +19,25 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 const people = [
     {
         name: 'Sebastijan Zindl',
-        role: 'Team-lid / Software Engineering',
+        role: 'Team-lead / Hard Carry',
         imageUrl:
             '/seb4e.jfif',
     },
     {
         name: 'Ljubica Ristovska',
-        role: 'Cyber Security',
+        role: 'Laravel enthusiast',
         imageUrl:
             '/bub4e.jfif',
     },
     {
         name: 'Sara Apostolovska',
-        role: 'Software Engineering',
+        role: 'Entrepreneur / Tailwind master',
         imageUrl:
             '/sar4e.jfif'
     },
     {
         name: 'Marko Ilioski',
-        role: 'Software Engineering',
+        role: 'CSS expert',
         imageUrl:
             '/mar4e.jpg'
     },
@@ -283,15 +283,15 @@ function ScrollToSectionPage() {
     const targetRef = useRef<HTMLDivElement | null>(null);
 
     return (
-        <div className="bg-white py-24 sm:py-32" id={"about"}>
+        <div className="bg-white py-32 sm:py-28" id={"about"}>
             <div className="mx-auto grid max-w-7xl gap-x-8 gap-y-20 px-6 lg:px-8 xl:grid-cols-3">
                 <div className="max-w-2xl">
                     <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Meet our Team</h2>
-                    <p className="mt-6 text-lg leading-8 text-gray-600">
+                    <p className="mt-6 text-lg leading-8 text-gray-600 gap-6">
                         Hi! Our name Apoapsis means the farthest point in an orbit, representing our team's commitment to pushing the boundaries of space exploration and technology. We're all about reaching for the stars and exploring the outer limits of our universe!
                     </p>
                 </div>
-                <ul role="list" className="grid gap-x-8 gap-y-12 sm:grid-cols-2 sm:gap-y-16 xl:col-span-2">
+                <ul role="list" className="grid gap-x-8 gap-y-14 sm:grid-cols-2 sm:gap-y-16 xl:col-span-2">
                     {people.map((person) => (
                         <li key={person.name}>
                             <div className="flex items-center gap-x-6">
