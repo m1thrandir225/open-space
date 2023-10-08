@@ -19,7 +19,6 @@ const SingleProject: React.FC<SingleProjectProps> = ({
   projectTags,
   author,
 }) => {
-  console.log(project.links);
   return (
     <div className=" mx-auto w-full flex items-center justify-center">
       <div className="px-6 py-8">
@@ -91,9 +90,14 @@ const SingleProject: React.FC<SingleProjectProps> = ({
               <Button>Participate</Button>
             </div>
 
-            <div className="space-x-2">
-              {projectTags?.map((projectTag) => (
-                <p key={projectTag.id}>{projectTag.project_id}</p>
+            <div className="space-x-2 flex flex-row items-center justify-start gap-4 my-4">
+              {projectTags?.map((projectTag, index) => (
+                <p
+                  key={index}
+                  className="px-4 py-2 outline-2 outline outline-accent-foreground rounded-full"
+                >
+                  {projectTag.tags.name}
+                </p>
               ))}
             </div>
 
