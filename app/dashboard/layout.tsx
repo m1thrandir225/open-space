@@ -10,6 +10,9 @@ export default function DashboardLayout({
     <div className={"h-screen"}>
       <DashboardHeader />
       {children}
+      <p className="absolute bottom-4 right-4 bg-accent/80 p-2 rounded-md cursor-none">
+        Work in Progress
+      </p>
     </div>
   );
 }
